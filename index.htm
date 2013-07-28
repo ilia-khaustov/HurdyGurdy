@@ -1,0 +1,17 @@
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="vk.js"></script>
+	<script src="engine.js"></script>
+	<script>
+		$(document).ready(function() { setHandlers(); startAuthIfTokenExists(); });
+	</script>
+	<meta charset="utf-8" />
+</head>
+<body>
+	<a href="#" id="vk_connect">Соединить?</a><br /><br />
+	<input type="text" id="search" />
+	<div class="result">
+	</div>
+</body>
+</html>

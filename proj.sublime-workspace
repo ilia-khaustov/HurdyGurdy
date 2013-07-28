@@ -1,0 +1,927 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"can",
+				"canvasModels"
+			],
+			[
+				"sync",
+				"syncGoogleTaskAtom"
+			],
+			[
+				"goo",
+				"googleTasks"
+			],
+			[
+				"syn",
+				"syncManagers"
+			],
+			[
+				"cons",
+				"console"
+			],
+			[
+				"update",
+				"updateExisting"
+			],
+			[
+				"cal",
+				"callback"
+			],
+			[
+				"sy",
+				"syncGoogleTaskAtom"
+			],
+			[
+				"parent",
+				"parent"
+			],
+			[
+				"canvas",
+				"canvasModel"
+			],
+			[
+				"goog",
+				"googleTaskAtom"
+			],
+			[
+				"crea",
+				"createGoogleTaskAtom"
+			],
+			[
+				"task",
+				"taskManager"
+			],
+			[
+				"atom",
+				"atomCanvasCollection"
+			],
+			[
+				"get",
+				"getDataModel"
+			],
+			[
+				"google",
+				"googleTaskModel"
+			],
+			[
+				"x",
+				"x"
+			],
+			[
+				"ky",
+				"keyCode"
+			],
+			[
+				"cl",
+				"client_id"
+			],
+			[
+				"i",
+				"_isReady"
+			],
+			[
+				"value",
+				"valueOf"
+			],
+			[
+				"json",
+				"jsonURL"
+			],
+			[
+				"js",
+				"jsonURL"
+			],
+			[
+				"ex",
+				"exercisesJSON"
+			],
+			[
+				"border",
+				"border"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"bl",
+				"inline-block"
+			],
+			[
+				"no",
+				"nowrap"
+			],
+			[
+				"exe",
+				"exercisesListModel"
+			],
+			[
+				"Exe",
+				"ExercisesListModel"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"paddin",
+				"padding"
+			],
+			[
+				"set",
+				"setOutput"
+			],
+			[
+				"patt",
+				"patternAndFlags"
+			],
+			[
+				"pat",
+				"patternAndFlags"
+			],
+			[
+				"re",
+				"regexReplace"
+			],
+			[
+				"rege",
+				"regexFind"
+			],
+			[
+				"_re",
+				"_regexpFind"
+			],
+			[
+				"ou",
+				"outputDesired"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"border-ty",
+				"border-style"
+			],
+			[
+				"bore",
+				"border"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"padding",
+				"padding-left"
+			],
+			[
+				"escape",
+				"escapeRegExp  (function)"
+			],
+			[
+				"new",
+				"newRegExpression"
+			],
+			[
+				"_",
+				"_regExpression"
+			],
+			[
+				"out",
+				"_output"
+			],
+			[
+				"ra",
+				"radius"
+			],
+			[
+				"deq",
+				"deq_object"
+			],
+			[
+				"sc",
+				"scatter  (function)"
+			],
+			[
+				"qu",
+				"quadrature  (module)"
+			],
+			[
+				"men",
+				"menu-item"
+			],
+			[
+				"right",
+				"right-part"
+			],
+			[
+				"back",
+				"background-color:   (property)"
+			],
+			[
+				"ma",
+				"asmatrix  (function)"
+			],
+			[
+				"stri",
+				"string-like"
+			],
+			[
+				"meth",
+				"method_name"
+			],
+			[
+				"another",
+				"another_way_to_write_class_methods"
+			],
+			[
+				"fid",
+				"fidos_wag"
+			],
+			[
+				"ran",
+				"random"
+			],
+			[
+				"NoM",
+				"NoMethodError  (class)"
+			],
+			[
+				"ass",
+				"assert_equal"
+			],
+			[
+				"po",
+				"positions"
+			],
+			[
+				"My",
+				"MySpecialError"
+			],
+			[
+				"Tri",
+				"TriangleError"
+			],
+			[
+				"equ",
+				"equilateral"
+			],
+			[
+				"fals",
+				"false_stuff"
+			],
+			[
+				"true",
+				"true_stuff"
+			],
+			[
+				"fal",
+				"false_value"
+			],
+			[
+				"return",
+				"return_value"
+			],
+			[
+				"Gray",
+				"Gray"
+			],
+			[
+				"cat",
+				"catsAndDogs"
+			],
+			[
+				"all",
+				"all_symbols"
+			],
+			[
+				"symbols",
+				"symbols_as_strings"
+			],
+			[
+				"Hash",
+				"Hash	Hash.new { |hash, key| hash[key] = .. }"
+			],
+			[
+				"John",
+				"Johnson"
+			],
+			[
+				"con",
+				"controller"
+			],
+			[
+				"butt",
+				"button_gottop"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"pro",
+				"prompt"
+			],
+			[
+				"c",
+				"className"
+			],
+			[
+				"for",
+				"for	for (…) {…}"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "engine.js",
+			"settings":
+			{
+				"buffer_size": 886,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "index.htm",
+			"settings":
+			{
+				"buffer_size": 250,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "vk.js",
+			"settings":
+			{
+				"buffer_size": 236,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/User/PythonW.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"dis",
+				"Coffee: Display JavaScript"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 210.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/git/pyGA/ga.py",
+		"/C/git/pyGA/pyGA.sublime-project",
+		"/C/git/slash-system/dist/mobile/config.xml",
+		"/C/git/slash-system/client/scripts/services/google.coffee",
+		"/C/git/slash-system/client/scripts/app.coffee",
+		"/C/git/slash-system/client/scripts/widgets/buttonToolbar.html",
+		"/C/git/slash-system/client/scripts/views/canvasToolbarViews.coffee",
+		"/C/git/slash-system/client/scripts/views/canvasViews.coffee",
+		"/C/git/slash-system/client/scripts/utils/keyboardControl.coffee",
+		"/C/git/slash-system/client/scripts/widgets/buttonToolbar.coffee",
+		"/C/git/slash-system/client/scripts/models/dataModels.coffee",
+		"/C/git/slash-system/client/scripts/models/baseModel.coffee",
+		"/C/git/slash-system/client/scripts/models/connectorModels.coffee",
+		"/C/git/slash-system/client/scripts/models/canvasModels.coffee",
+		"/C/git/slash-system/client/scripts/collections/canvasCollections.coffee",
+		"/C/git/slash-system/client/scripts/widgets/objectCreator.html",
+		"/C/git/slash-system/client/scripts/tests/dataModels.spec.coffee",
+		"/C/git/slash-system/client/scripts/collections/localStorageCollection.coffee",
+		"/C/git/slash-system/client/scripts/utils/translate.coffee",
+		"/C/git/slash-system/client/scripts/collections/dataCollections.coffee",
+		"/C/git/slash-system/client/scripts/world/world.coffee",
+		"/C/Users/Ilya/Desktop/g-ap.js",
+		"/C/git/slash-system/client/scripts/utils/events.coffee",
+		"/C/Users/Ilya/.ssh/github_rsa",
+		"/C/git/slash-system/tools/build.py",
+		"/C/git/slash-system/client/main.js",
+		"/C/git/slash-system/client/scripts/world/camera.coffee",
+		"/C/candy/hg/cmpy/vk.py",
+		"/C/git/YART/src/js/controllers/JSONLoaderController.js",
+		"/C/git/YART/src/js/bootstrap.js",
+		"/C/git/YART/src/js/models/JSONLoaderModel.js",
+		"/C/git/YART/src/css/style.css",
+		"/C/git/YART/src/js/templates/JSONLoaderTemplate.js",
+		"/C/git/YART/src/js/views/JSONLoaderView.js",
+		"/C/Users/Ilya/Dropbox/Public/task.json",
+		"/C/git/YART/index.htm",
+		"/C/git/YART/src/js/controllers/ExerciseController.js",
+		"/C/git/YART/src/js/views/ExerciseView.js",
+		"/C/git/YART/src/js/models/ExerciseModel.js",
+		"/C/git/YART/src/css/Exercise.css",
+		"/C/git/YART/task.json",
+		"/C/git/YART/src/js/models/JSONLoaderModel",
+		"/C/git/YART/src/js/templates/JSONLoaderTemplate",
+		"/C/git/YART/src/js/templates/ExerciseTemplate.js",
+		"/C/git/YART/src/js/models/ExercisesListModel.js",
+		"/C/git/YART/src/js/views/ExercisesListView.js",
+		"/C/git/YART/src/task.json",
+		"/C/git/YART/src/js/models/ExercisesModel.js",
+		"/C/git/YART/src/js/templates/ExercisesListTemplate.js",
+		"/C/git/YART/src/js/util.js",
+		"/C/git/YART/lib/maria.js",
+		"/C/Users/Ilya/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/git/YART/src/index.htm",
+		"/C/git/YART-page/YART/index.htm",
+		"/C/git/YART/src/js/namespace.js",
+		"/C/git/YART/lib/aristocrat.js",
+		"/C/candy/clojure/coding/test.cl",
+		"/C/Users/Ilya/AppData/Roaming/Sublime Text 2/Packages/User/PythonW.sublime-build",
+		"/C/Users/Ilya/Desktop/script.htm",
+		"/C/Users/Ilya/AppData/Roaming/Sublime Text 2/Packages/User/WSH.sublime-build",
+		"/C/Users/Ilya/AppData/Roaming/Sublime Text 2/Packages/User/SublimeREPL.sublime-settings",
+		"/C/Users/Ilya/AppData/Roaming/Sublime Text 2/Packages/SublimeREPL/SublimeREPL.sublime-settings",
+		"/C/Users/Ilya/AppData/Roaming/Sublime Text 2/Packages/Clojure/Clojure.sublime-build",
+		"/C/git/inCapsulam/inCapsulam/bin/Debug/Данные статистических запусков/2013-05-23 Данные к отчётам №102-102.txt",
+		"/C/Git/inCapsulam/inCapsulam/bin/Debug/Данные статистических запусков/2013-05-23 Данные к отчётам №103-103.txt",
+		"/C/candy/cygwin/home/Ilya/.bash_profile",
+		"/C/JS/swarm/swarm.htm",
+		"/C/JS/swarm/engine.js",
+		"/C/JS/enotab/jquery-1.9.1.js",
+		"/C/Users/Ilya/Downloads/contactsUTF8.csv",
+		"/C/candy/cygwin/etc/profile",
+		"/C/Users/Ilya/Desktop/updater-script",
+		"/C/cygwin/home/Ilya/kitchen/WORKING_052013_023752/META-INF/com/google/android/update-script",
+		"/C/Users/Ilya/Documents/!sibsau/Диплом/Парабола с линейными ограничениями/10 переменных.xml",
+		"/C/Users/Ilya/Downloads/contacts.csv",
+		"/C/Users/Ilya/Desktop/engine.js",
+		"/C/Users/Ilya/Desktop/swarm.htm",
+		"/C/Program Files (x86)/Microsoft Office/Office12/Bibliography/Style/ISO690NmericalSquared.xsl",
+		"/C/Users/Ilya/Desktop/С ЭМК и без ЭМК.png",
+		"/C/Apache/conf/httpd.conf",
+		"/C/Apache/conf/original/httpd.conf",
+		"/C/Apache/htdocs/index.php",
+		"/C/Users/Ilya/Desktop/сомбреро_текстом.xml",
+		"/C/Users/Ilya/Documents/Visual Studio 2012/Projects/inCapsulam/inCapsulam/bin/Debug/Данные статистических запусков/2013-04-05 Данные к отчётам №19-20.txt",
+		"/C/Users/Ilya/Documents/Visual Studio 2012/Projects/inCapsulam/inCapsulam/bin/Debug/Отчёты о статистических запусках/2013-03-30 Отчёт №7.txt",
+		"/C/Users/Ilya/Documents/Visual Studio 2012/Projects/inCapsulam/inCapsulam/bin/Debug/Отчёты о статистических запусках/2013-03-30 Отчёт №6.txt",
+		"/C/Users/Ilya/Documents/Visual Studio 2012/Projects/inCapsulam/inCapsulam/bin/Debug/Отчёты о статистических запусках/2013-03-30 Отчёт №26.txt",
+		"/C/Users/Ilya/Documents/Visual Studio 2012/Projects/inCapsulam/inCapsulam/bin/Debug/Отчёты о статистических запусках/2013-03-30 Отчёт №25.txt",
+		"/C/Users/Ilya/Documents/Visual Studio 2012/Projects/inCapsulam/inCapsulam/bin/Debug/Отчёты о статистических запусках/2013-03-30 Отчёт №23.txt",
+		"/C/Users/Ilya/Documents/Visual Studio 2012/Projects/inCapsulam/inCapsulam/bin/Debug/Отчёты о статистических запусках/2013-03-30 Отчёт №24.txt",
+		"/C/Users/Ilya/Documents/Visual Studio 2012/Projects/inCapsulam/inCapsulam/bin/Debug/Данные статистических запусков/2013-04-02 Данные к отчётам №1-4.txt",
+		"/C/Users/Ilya/Documents/Visual Studio 2012/Projects/inCapsulam/inCapsulam/bin/Debug/Данные статистических запусков/2013-03-30 Данные к отчёту №8.txt",
+		"/C/Users/Ilya/Documents/Visual Studio 2012/Projects/inCapsulam/inCapsulam/bin/Debug/Данные статистических запусков/2013-03-30 Данные к отчёту №7.txt",
+		"/C/Users/Ilya/Desktop/Критерии оценки образовательных процессов",
+		"/C/Users/Ilya/Dropbox/pythondev/lab.py",
+		"/C/Users/Ilya/Dropbox/pythondev/adaptive_control.py",
+		"/C/Users/Ilya/Desktop/messages_2743803.txt",
+		"/C/Users/Ilya/Dropbox/pythondev/state_space_deq.py",
+		"/C/Users/Ilya/Documents/Python/NewProject/lab.py",
+		"/C/JS/stroketouch.htm",
+		"/C/Python27/lib/site-packages/scipy/integrate/__init__.py",
+		"/C/Python27/lib/site-packages/numpy/core/numeric.py",
+		"/C/Python27/lib/site-packages/numpy/testing/nosetester.py",
+		"/C/Python27/lib/site-packages/scipy/integrate/quadrature.py",
+		"/C/Users/Ilya/AppData/Roaming/Sublime Text 2/Packages/Python/Python.sublime-build",
+		"/C/Python27/lib/site-packages/scipy/special/orthogonal.py",
+		"/C/Python27/lib/site-packages/scipy/__init__.py",
+		"/C/JS/engine.js",
+		"/C/Users/Ilya/Desktop/CloudPad.htm",
+		"/C/Users/Ilya/Documents/Python/NewProject/test.py",
+		"/C/Python27/lib/site-packages/matplotlib/__init__.py",
+		"/C/Python27/lib/site-packages/numpy/linalg/linalg.py",
+		"/C/Users/Ilya/Documents/Visual Studio 2012/Projects/MathHelp/MathHelp/Optimization.cs",
+		"/C/Users/Ilya/Documents/Visual Studio 2012/Projects/MathHelp/MathHelp/Function.cs",
+		"/C/Python27/lib/site-packages/numpy/__init__.py",
+		"/C/Users/Ilya/Documents/Python/NewProject/distribute-0.6.34/distribute_setup.py",
+		"/C/Users/Ilya/Documents/Python/NewProject/distribute-0.6.34/README.txt",
+		"/C/Users/Ilya/AppData/Roaming/Sublime Text 2/Packages/Default/exec.py",
+		"/C/Python27/lib/site-packages/numpy/random/__init__.py",
+		"/C/Users/Ilya/.codeintel/config",
+		"/C/Users/Ilya/AppData/Roaming/Sublime Text 2/Packages/SublimeCodeIntel/Base File.sublime-settings",
+		"/C/Users/Ilya/Documents/Python/NewProject/matplotlib-1.2.0/setup.py",
+		"/C/Users/Ilya/Documents/Python/NewProject/matplotlib-1.2.0/setupegg.py",
+		"/C/Users/Ilya/Documents/Python/NewProject/matplotlib-1.2.0/INSTALL",
+		"/C/Users/Ilya/Documents/Python/NewProject/matplotlib-1.2.0/TODO",
+		"/C/Users/Ilya/Documents/Python/NewProject/matplotlib-1.2.0/setupext.py",
+		"/C/Users/Ilya/Desktop/koans/about_exceptions.rb",
+		"/C/Users/Ilya/Desktop/koans/about_classes.rb"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"C:\\git\\slash-system\\client",
+			"<open files>",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"data",
+			"addHandler",
+			"arguments",
+			"slice",
+			"trigger",
+			".on ",
+			"on ",
+			"on",
+			"@on ",
+			"on ",
+			".on",
+			" t ",
+			"t",
+			"createAtom",
+			"ToolbarButton",
+			"world",
+			"CircleToolbarView",
+			"srcElement",
+			"maria.SetModel.subclass",
+			"setmodel",
+			"}\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "engine.js",
+					"settings":
+					{
+						"buffer_size": 886,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								859,
+								859
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_disabled_languages":
+							[
+							],
+							"codeintel_live": true,
+							"codeintel_live_disabled_languages":
+							[
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"sublime_auto_complete": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 49.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "index.htm",
+					"settings":
+					{
+						"buffer_size": 250,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								234,
+								234
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_disabled_languages":
+							[
+							],
+							"codeintel_live": true,
+							"codeintel_live_disabled_languages":
+							[
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"sublime_auto_complete": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "vk.js",
+					"settings":
+					{
+						"buffer_size": 236,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								38,
+								46
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_disabled_languages":
+							[
+							],
+							"codeintel_live": true,
+							"codeintel_live_disabled_languages":
+							[
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"sublime_auto_complete": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 207.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 181.0,
+	"status_bar_visible": true
+}
