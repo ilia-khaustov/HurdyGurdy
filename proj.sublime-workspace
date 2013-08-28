@@ -344,26 +344,26 @@
 	"buffers":
 	[
 		{
-			"file": "engine.js",
+			"file": "app.js",
 			"settings":
 			{
-				"buffer_size": 886,
+				"buffer_size": 1648,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "index.htm",
+			"file": "tracks/index.js",
 			"settings":
 			{
-				"buffer_size": 250,
+				"buffer_size": 2131,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "vk.js",
+			"file": "play.js",
 			"settings":
 			{
-				"buffer_size": 236,
+				"buffer_size": 230,
 				"line_ending": "Windows"
 			}
 		}
@@ -424,6 +424,39 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Ilya/Desktop/yandex/ya_tests.py",
+		"/C/Users/Ilya/Desktop/yandex/ya_exceptions.py",
+		"/C/Users/Ilya/Desktop/yandex/ya_methods.py",
+		"/C/git/HurdyGurdy/yandex/__init__.py",
+		"/C/git/HurdyGurdy/yandex/ya_exceptions.py",
+		"/C/git/HurdyGurdy/yandex/ya_tests.py",
+		"/C/git/HurdyGurdy/yandex/ya_methods.py",
+		"/C/git/HurdyGurdy/yandex/methods.py",
+		"/C/git/HurdyGurdy/yandex/tests.py",
+		"/C/git/HurdyGurdy/yandex/exceptions.py",
+		"/C/git/HurdyGurdy/yandex/data/table_fail_y.json",
+		"/C/git/HurdyGurdy/yandex/test.py",
+		"/C/git/HurdyGurdy/yandex/method.py",
+		"/C/git/HurdyGurdy/yandex/yandex.py",
+		"/C/git/HurdyGurdy/yandex.py",
+		"/C/git/HurdyGurdy/yandex/data/table_ok.json",
+		"/C/git/HurdyGurdy/yandex/data/table_not_ok.json",
+		"/C/git/HurdyGurdy/yandex/data/table_fail_value.json",
+		"/C/git/HurdyGurdy/yandex/data/table_fail_x.json",
+		"/C/git/HurdyGurdy/public/javascripts/engine.js",
+		"/C/git/HurdyGurdy/views/index.ejs",
+		"/C/git/HurdyGurdy/package.json",
+		"/C/git/HurdyGurdy/play.js",
+		"/C/git/HurdyGurdy/server.js",
+		"/C/git/HurdyGurdy/engine.js",
+		"/C/git/HurdyGurdy/routes/user.js",
+		"/C/git/HurdyGurdy/index.htm",
+		"/C/git/HurdyGurdy/routes/index.js",
+		"/C/git/HurdyGurdy/public/stylesheets/style.css",
+		"/C/git/HurdyGurdy/public/stylesheets/style.styl",
+		"/C/git/HurdyGurdy/node-uploader.js",
+		"/C/git/HurdyGurdy/README.md",
+		"/C/git/HurdyGurdy/vk.js",
 		"/C/git/pyGA/ga.py",
 		"/C/git/pyGA/pyGA.sublime-project",
 		"/C/git/slash-system/dist/mobile/config.xml",
@@ -518,40 +551,7 @@
 		"/C/Users/Ilya/Documents/Visual Studio 2012/Projects/inCapsulam/inCapsulam/bin/Debug/Данные статистических запусков/2013-03-30 Данные к отчёту №8.txt",
 		"/C/Users/Ilya/Documents/Visual Studio 2012/Projects/inCapsulam/inCapsulam/bin/Debug/Данные статистических запусков/2013-03-30 Данные к отчёту №7.txt",
 		"/C/Users/Ilya/Desktop/Критерии оценки образовательных процессов",
-		"/C/Users/Ilya/Dropbox/pythondev/lab.py",
-		"/C/Users/Ilya/Dropbox/pythondev/adaptive_control.py",
-		"/C/Users/Ilya/Desktop/messages_2743803.txt",
-		"/C/Users/Ilya/Dropbox/pythondev/state_space_deq.py",
-		"/C/Users/Ilya/Documents/Python/NewProject/lab.py",
-		"/C/JS/stroketouch.htm",
-		"/C/Python27/lib/site-packages/scipy/integrate/__init__.py",
-		"/C/Python27/lib/site-packages/numpy/core/numeric.py",
-		"/C/Python27/lib/site-packages/numpy/testing/nosetester.py",
-		"/C/Python27/lib/site-packages/scipy/integrate/quadrature.py",
-		"/C/Users/Ilya/AppData/Roaming/Sublime Text 2/Packages/Python/Python.sublime-build",
-		"/C/Python27/lib/site-packages/scipy/special/orthogonal.py",
-		"/C/Python27/lib/site-packages/scipy/__init__.py",
-		"/C/JS/engine.js",
-		"/C/Users/Ilya/Desktop/CloudPad.htm",
-		"/C/Users/Ilya/Documents/Python/NewProject/test.py",
-		"/C/Python27/lib/site-packages/matplotlib/__init__.py",
-		"/C/Python27/lib/site-packages/numpy/linalg/linalg.py",
-		"/C/Users/Ilya/Documents/Visual Studio 2012/Projects/MathHelp/MathHelp/Optimization.cs",
-		"/C/Users/Ilya/Documents/Visual Studio 2012/Projects/MathHelp/MathHelp/Function.cs",
-		"/C/Python27/lib/site-packages/numpy/__init__.py",
-		"/C/Users/Ilya/Documents/Python/NewProject/distribute-0.6.34/distribute_setup.py",
-		"/C/Users/Ilya/Documents/Python/NewProject/distribute-0.6.34/README.txt",
-		"/C/Users/Ilya/AppData/Roaming/Sublime Text 2/Packages/Default/exec.py",
-		"/C/Python27/lib/site-packages/numpy/random/__init__.py",
-		"/C/Users/Ilya/.codeintel/config",
-		"/C/Users/Ilya/AppData/Roaming/Sublime Text 2/Packages/SublimeCodeIntel/Base File.sublime-settings",
-		"/C/Users/Ilya/Documents/Python/NewProject/matplotlib-1.2.0/setup.py",
-		"/C/Users/Ilya/Documents/Python/NewProject/matplotlib-1.2.0/setupegg.py",
-		"/C/Users/Ilya/Documents/Python/NewProject/matplotlib-1.2.0/INSTALL",
-		"/C/Users/Ilya/Documents/Python/NewProject/matplotlib-1.2.0/TODO",
-		"/C/Users/Ilya/Documents/Python/NewProject/matplotlib-1.2.0/setupext.py",
-		"/C/Users/Ilya/Desktop/koans/about_exceptions.rb",
-		"/C/Users/Ilya/Desktop/koans/about_classes.rb"
+		"/C/Users/Ilya/Dropbox/pythondev/lab.py"
 	],
 	"find":
 	{
@@ -572,6 +572,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"'",
+			"socket",
+			"tokenExpires",
+			"tracksFound",
+			"'",
 			"data",
 			"addHandler",
 			"arguments",
@@ -600,6 +605,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"\"",
+			"_socket",
+			"_tokenExpires",
+			"_tracksFound",
+			"\""
 		],
 		"reverse": false,
 		"show_context": true,
@@ -610,23 +620,23 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "engine.js",
+					"file": "app.js",
 					"settings":
 					{
-						"buffer_size": 886,
+						"buffer_size": 1648,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								859,
-								859
+								1572,
+								1572
 							]
 						],
 						"settings":
@@ -687,28 +697,30 @@
 								"Python Django": "Python"
 							},
 							"sublime_auto_complete": false,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 49.0,
+						"translation.y": 624.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "index.htm",
+					"file": "tracks/index.js",
 					"settings":
 					{
-						"buffer_size": 250,
+						"buffer_size": 2131,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								234,
-								234
+								2131,
+								2131
 							]
 						],
 						"settings":
@@ -769,28 +781,29 @@
 								"Python Django": "Python"
 							},
 							"sublime_auto_complete": false,
-							"syntax": "Packages/HTML/HTML.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 205.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "vk.js",
+					"file": "play.js",
 					"settings":
 					{
-						"buffer_size": 236,
+						"buffer_size": 230,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								38,
-								46
+								0,
+								0
 							]
 						],
 						"settings":
@@ -922,6 +935,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 181.0,
+	"side_bar_width": 210.0,
 	"status_bar_visible": true
 }
