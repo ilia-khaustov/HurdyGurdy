@@ -1,30 +1,12 @@
-var fs = require('fs');
 var url = require('url');
 var http = require('http');
-var exec = require('child_process').exec;
-var spawn = require('child_process').spawn;
 var player = require('./player.js');
 
-var tracksList = [];
-
-function initPlayback() {
-	if (tracksList.length <= 0) {
-		return;
-	}
-	if (player.isPlaying()) {
-		console.log('Still playing, wait for end.')
-		return;
-	}
-
-	console.log('Tracks : ' + tracksList.length);
-	player.play(tracksList[0]);
-   	tracksList[0].on('end', function() {
-   		player.onFlush = function() {
-	   		console.log('Custom onFlush');
-	        tracksList.splice(0, 1);
-	        initPlayback();
-   		};
-   	});
+function initPlayback(res) {
+	player.play(res);
+	player.onPlaybackEnds(function() {
+		console.log('Playback ends.');
+	});
 }
 
 exports.add = function(file_url) {
@@ -34,7 +16,6 @@ exports.add = function(file_url) {
 	    path: url.parse(file_url).pathname
 	};
 	http.get(options, function(res) {
-		tracksList.push(res);
-		initPlayback();
+		initPlayback(res);
 	});
 };

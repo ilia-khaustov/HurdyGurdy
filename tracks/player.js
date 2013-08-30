@@ -12,31 +12,23 @@ var options = {
 
 var decoderMp3 = lame.Decoder();
 var speaker = new Speaker(options);
-var stop = true;
 
-var currentStream = null;
-
-speaker.on('flush', function() {
-	console.log('Track ended.');
-	stop = true;
-	exports.onFlush();
-});
+var onPlaybackEnds = function() {};
 
 function playMp3(dataStream) {
-	console.log('Track started.');
-	currentStream = dataStream;
-	currentStream.pipe(decoderMp3, {end:false}).pipe(speaker, {end:false});
+	speaker = new Speaker(options);
+	decoderMp3 = lame.Decoder();
+	dataStream.pipe(decoderMp3).pipe(speaker);
+	
+	speaker.on('flush', function() {
+		onPlaybackEnds();
+	});
 }
 
 exports.play = function(dataStream) {
 	playMp3(dataStream);
-	stop = false;
 };
 
-exports.isPlaying = function() {
-	return !stop;
-};
-
-exports.onFlush = function() {
-	return;
+exports.onPlaybackEnds = function(callback) {
+	onPlaybackEnds = callback;
 };
