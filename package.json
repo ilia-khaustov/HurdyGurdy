@@ -1,5 +1,5 @@
 {
-  "name": "application-name",
+  "name": "HurdyGurdy",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,6 +10,6 @@
     "ejs": "*",
     "stylus": "*",
     "socket.io" : "*",
-    "icecast" : "*"
+    "formidable" : "*"
   }
 }

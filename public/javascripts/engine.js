@@ -70,8 +70,16 @@ function setHandlers() {
 	$('#vk_connect').one('click', function() {
 		startAuth();
 	});
+
+	var timeoutSearchId = null;
 	$('#search').keypress(function() {
-		search(this.value);
+		if (timeoutSearchId) {
+			clearTimeout(timeoutSearchId);
+		}
+		var query = this.value;
+		timeoutSearchId = setTimeout(function() {
+			search(query);
+		}, 500);
 	});
 	$('.track').on('click', function() {
 		var id = $(this).attr('id').replace('track_', '');

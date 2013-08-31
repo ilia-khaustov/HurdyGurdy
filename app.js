@@ -1,8 +1,3 @@
-
-/**
- * Module dependencies.
- */
-
 var express = require('express')
   , routes = require('./routes')
   , http = require('http')
@@ -34,11 +29,10 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/listen', function(req, res) {
-	tracks.play(req, res);
+  tracks.play(req, res);
 });
 
 serverWs = http.createServer(app);
-serverAudio = http.createServer(app);
 
 app.listen(app.get('port_http'), function() {
   console.log('Express server listening on port ' + app.get('port_http'));
@@ -48,15 +42,11 @@ serverWs.listen(app.get('port_ws'), function() {
   console.log('WebSockets server listening on port ' + app.get('port_ws'));
 });
 
-serverAudio.listen(81, function() {
-  console.log('Audio server listening on port 81');
-});
-
 listener_ws = io.listen(serverWs);
 listener_ws.sockets.on('connection', function (socket) {
 
   socket.on('send_track_to_queue', function (track) {
-		tracks.add(track.url);
+    tracks.sendToQueue(track);
   });
 
 });
