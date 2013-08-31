@@ -3,7 +3,8 @@ var express = require('express')
   , http = require('http')
   , io = require('socket.io')
   , tracks = require('./tracks')
-  , path = require('path');
+  , path = require('path')
+  , translate = require('./translate.js');
 
 var app = express();
 
@@ -28,8 +29,8 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/listen', function(req, res) {
-  tracks.play(req, res);
+app.get('/translate.js', function(req, res) {
+  res.send(translate.source);
 });
 
 serverWs = http.createServer(app);

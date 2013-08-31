@@ -7,10 +7,11 @@
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="http://localhost:3000/socket.io/socket.io.js"></script>
 	<script src="/javascripts/engine.js"></script>
+  <script src="/translate.js"></script>
   </head>
   <body>
     <h1><%= title %></h1>
-    <a href="#" id="vk_connect">Соединить?</a><br /><br />
+    <a href="#" id="vk_connect"><%= t.expression('vk.try_connect') %></a><br /><br />
 	<input type="text" id="search" />
 	<div class="result">
 	</div>
