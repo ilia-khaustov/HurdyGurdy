@@ -19,7 +19,7 @@ Use
 ---
 
 1. Make sure you haven't any webservers or some Skype using port 80.
-2. Run **node start** from HurdyGurdy dir. Visit [localhost](http://localhost).
+2. Run **node app.js** from HurdyGurdy dir. Visit [localhost](http://localhost).
 3. Log into your [VK](http://vk.com) account, type in some words and choose tracks to add them to playlist.
 4. Enjoy music.
 
