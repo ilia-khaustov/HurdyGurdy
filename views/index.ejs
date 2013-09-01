@@ -1,19 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%=config.locale%>">
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-	<meta charset="utf-8" />
-	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-	<script src="http://localhost:3000/socket.io/socket.io.js"></script>
-	<script src="/javascripts/engine.js"></script>
-  <script src="/translate.js"></script>
+    <title><%= t.expression('title') %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
+    <link rel='stylesheet' href='css/style.css' />
+  	<meta charset="utf-8" />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <a href="#" id="vk_connect"><%= t.expression('vk.try_connect') %></a><br /><br />
-	<input type="text" id="search" />
-	<div class="result">
-	</div>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/engine.js"></script>
+    
+    <div id="wrap">
+      <div class="navbar navbar-default">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">HuGu</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="#about"><%=t.expression('about.title')%></a></li>
+        </ul>
+      </div>
+      <div class="container manager">
+        <form role="form">
+          <input type='hidden' name='vk.try_connect' value='<%=t.expression('vk.try_connect')%>' />
+          <input type='hidden' name='vk.wait_connection' value='<%=t.expression('vk.wait_connection')%>' />
+          <div class="form-group row">
+            <a href="#" id="vk_connect"><%=t.expression('vk.try_connect')%></a>
+            <input type="text" class="form-control" id="vk_search" placeholder="<%=t.expression('vk.placeholder_search')%>"/>
+          </div>
+        </form>
+      </div>
+      <div class="container lists">
+        <div class="searchlist col-md-6">
+        </div>
+        <div class="playlist col-md-6">
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+    </div>
+
   </body>
 </html>

@@ -1,9 +1,3 @@
-/*
-
-	Шарманка
-
-*/
-
 var _tokenExpires = 0;
 var _tracksFound = [];
 
@@ -22,6 +16,10 @@ function doAuth() {
 	);
 }
 
+function getInputValueWithName(name) {
+	return $('input[name="'+name+'"]').val();
+}
+
 function checkTokenExpired() {
 	if (_tokenExpires <= (new Date()).valueOf()) {
 		return true;
@@ -38,10 +36,11 @@ function getToken() {
 
 function checkAndDoAuthIfExpired() {
 	if (checkTokenExpired()) {
-		$('#vk_connect').html("Соединяем...");
+		$('#vk_connect').html(getInputValueWithName('vk.wait_connect'));
 		doAuth();
 	} else {
-		$('#vk_connect').html("Соединено.");
+		$('#vk_connect').hide();
+		$('#vk_search').show();
 	}
 }
 
@@ -72,7 +71,7 @@ function setHandlers() {
 	});
 
 	var timeoutSearchId = null;
-	$('#search').keypress(function() {
+	$('#vk_search').keypress(function() {
 		if (timeoutSearchId) {
 			clearTimeout(timeoutSearchId);
 		}
@@ -108,7 +107,7 @@ function callbackSearch(result) {
   		item = result.response[key];
   		if (key == 0) continue;
   		_tracksFound.push(item);
-  		$('.result').append(
+  		$('.searchlist').append(
   			"<p>"+item.artist+
   			" - <a class='track' id='track_"+item.aid+
   			"' href='#'>"+item.title+
@@ -123,6 +122,7 @@ function sendTrackToQueue(track) {
 }
 
 $(document).ready(function() {
+	$('#vk_search').hide();
 	setHandlers();
 	startAuthIfTokenExists();
 });

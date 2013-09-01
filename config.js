@@ -14,7 +14,7 @@ var locales = {
 // Current parameters
 var currentEnvironment = dev;
 var currentOs = 'win';
-var currentLocale = locales.ru;
+var currentLocale = locales.en;
 
 // Exports
 exports.mplayer_exec = currentEnvironment[currentOs].mplayer_exec;

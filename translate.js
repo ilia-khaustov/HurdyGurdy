@@ -1,6 +1,10 @@
 var config = require('./config.js');
 
 var expressions = {
+	title : {
+		en : 'HuGu interactive playlist',
+		ru : 'HuGu - интерактивный плейлист'
+	},
 	vk : {
 		try_connect : {
 			en : 'Connect?',
@@ -10,9 +14,15 @@ var expressions = {
 			en : 'Waiting to connect...',
 			ru : 'Соединяем...'
 		},
-		connected : {
-			en : 'Connected',
-			ru : 'Соединено'
+		placeholder_search : {
+			en : 'Write some words',
+			ru : 'Напиши несколько слов'
+		}
+	},
+	about : {
+		title : {
+			en : 'About',
+			ru : 'О проекте'
 		}
 	}
 };
@@ -31,8 +41,4 @@ exports.expression = function(q) {
 		}
 	}
 	return "";
-};
-
-exports.source = function() {
-	
 };
