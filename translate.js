@@ -15,8 +15,8 @@ var expressions = {
 			ru : 'Соединяем...'
 		},
 		placeholder_search : {
-			en : 'Write some words',
-			ru : 'Напиши несколько слов'
+			en : 'Music search',
+			ru : 'Поиск музыки'
 		}
 	},
 	about : {
