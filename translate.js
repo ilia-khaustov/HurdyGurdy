@@ -24,6 +24,18 @@ var expressions = {
 			en : 'About',
 			ru : 'О проекте'
 		}
+	},
+	playlist : {
+		title : {
+			en : 'Playlist',
+			ru : 'Список воспроизведения'
+		}
+	},
+	searchlist : {
+		title : {
+			en : 'Search results',
+			ru : 'Результат поиска'
+		}
 	}
 };
 
@@ -32,7 +44,6 @@ exports.expression = function(q) {
 	var found = expressions;
 	for (var key in parts) {
 		var part = parts[key];
-		console.log(part);
 		if (part && found[part]) {
 			found = found[part];
 			if (found[config.locale]) {

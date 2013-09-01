@@ -4,6 +4,7 @@ var config = require('../config.js');
 var queue = [];
 var decoder = null;
 var isBusy = false;
+var socket = null;
 
 function play(track, onPlaybackEnds) {
 	decoder = child_process.spawn(config.mplayer_exec, [ '-really-quiet', '-nolirc', track.url]);
@@ -24,6 +25,10 @@ function play(track, onPlaybackEnds) {
 
 function init(track) {
 	if (track) {
+		track.hgId = 1;
+		if (queue.length > 0) {
+			track.hgId = queue[0].hgId + 1;
+		}
 		queue.unshift(track);
 		track = null;
 	}
@@ -37,13 +42,44 @@ function init(track) {
 
 	play(track, function() {
 		init(queue.pop());
+		socket.emit('playlist', queue);
 	});
 }
 
-exports.sendToQueue = function(track) {
+function sendToQueue(track) {
 	console.log('Added to queue: ');
 	for (var key in track) {
 		console.log(key + ": " + track[key]);
 	}
 	init(track);
+}
+
+exports.sendToQueue = function(track) {
+	sendToQueue(track);
 };
+
+function removeFromQueue(trackId) {
+	for (var key in queue) {
+		var track = queue[key];
+		if (track.hgId && track.hgId == trackId) {
+			queue.splice(key,1);
+			return;
+		}
+	}
+}
+
+exports.setSocket = function(_socket) {
+	socket = _socket;
+
+	socket.on('send_track_to_queue', function (track) {
+		sendToQueue(track);
+		socket.emit('playlist', queue);
+	});
+
+	socket.on('remove_track_from_queue', function(trackId) {
+		removeFromQueue(trackId);
+		socket.emit('playlist', queue);
+	});
+
+	socket.emit('playlist', queue);
+}

@@ -70,22 +70,50 @@ function setHandlers() {
 		startAuth();
 	});
 
-	var timeoutSearchId = null;
-	$('#vk_search').keypress(function() {
-		if (timeoutSearchId) {
-			clearTimeout(timeoutSearchId);
-		}
-		var query = this.value;
-		timeoutSearchId = setTimeout(function() {
-			search(query);
-		}, 500);
-	});
-	$('.track').on('click', function() {
-		var id = $(this).attr('id').replace('track_', '');
+	// var timeoutSearchId = null;
+	// $('#vk_search').keypress(function() {
+	// 	if (timeoutSearchId) {
+	// 		clearTimeout(timeoutSearchId);
+	// 	}
+	// 	var query = this.value;
+	// 	timeoutSearchId = setTimeout(function() {
+	// 		search(query);
+	// 	}, 500);
+	// });
+
+	$('.track-search').on('click', function(event) {
+		event.stopPropagation();
+		var id = $(this).attr('id').replace('trackSearch_', '');
 		for (var key in _tracksFound) {
 			if (_tracksFound[key].aid == id) {
 				sendTrackToQueue(_tracksFound[key]);
+				return;
 			}
+		}
+	});
+
+	$('.playlist').on('click', '.track-playlist', function(event) {
+		event.stopPropagation();
+		var id = $(this).attr('id').replace('trackPlaylist_', '');
+		removeTrackFromQueue(id);
+	});
+
+
+	$('#vk_form_search').submit(function() {
+		search($('#vk_search').val());
+		return false;
+	});
+
+	_socket.on('playlist', function(tracks) {
+		$('.playlist').empty();
+		for (var key in tracks) {
+			var track = tracks[key];
+			$('.playlist').prepend(
+	  			"<p>"+track.artist+
+	  			" - <a class='track-playlist' id='trackPlaylist_"+track.hgId+
+	  			"' href='javascript:void(0)'>"+track.title+
+	  			"</a></p>"
+  			);
 		}
 	});
 }
@@ -109,9 +137,9 @@ function callbackSearch(result) {
   		_tracksFound.push(item);
   		$('.searchlist').append(
   			"<p>"+item.artist+
-  			" - <a class='track' id='track_"+item.aid+
-  			"' href='#'>"+item.title+
-  			"</a>"
+  			" - <a class='track-search' id='trackSearch_"+item.aid+
+  			"' href='javascript:void(0)'>"+item.title+
+  			"</a></p>"
   		);
   	}
   	setHandlers();
@@ -119,6 +147,10 @@ function callbackSearch(result) {
 
 function sendTrackToQueue(track) {
 	_socket.emit('send_track_to_queue', track);
+}
+
+function removeTrackFromQueue(trackId) {
+	_socket.emit('remove_track_from_queue', trackId);
 }
 
 $(document).ready(function() {

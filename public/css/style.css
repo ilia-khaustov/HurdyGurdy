@@ -1,0 +1,7 @@
+.track-playlist:hover {
+  text-decoration: line-through;
+  color: #f00;
+}
+#vk_form_search {
+  margin: 0px 10px 0px 10px;
+}

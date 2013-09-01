@@ -46,8 +46,6 @@ serverWs.listen(app.get('port_ws'), function() {
 listener_ws = io.listen(serverWs);
 listener_ws.sockets.on('connection', function (socket) {
 
-  socket.on('send_track_to_queue', function (track) {
-    tracks.sendToQueue(track);
-  });
+  tracks.setSocket(socket);
 
 });
