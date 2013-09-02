@@ -24,14 +24,14 @@ function play(track, onPlaybackEnds) {
 }
 
 function init(track) {
-	if (track) {
-		track.hgId = 1;
-		if (queue.length > 0) {
-			track.hgId = queue[0].hgId + 1;
-		}
-		queue.unshift(track);
-		track = null;
-	}
+    if (track) {
+        track.hgId = 1;
+        if (queue.length > 0) {
+            track.hgId = queue[0].hgId + 1;
+        }
+        queue.unshift(track);
+        track = null;
+    }
 
 	if (isBusy) return;
 
@@ -41,7 +41,7 @@ function init(track) {
 	}
 
 	play(track, function() {
-		init(queue.pop());
+		init();
 		socket.emit('playlist', queue);
 	});
 }

@@ -21,12 +21,7 @@ function getInputValueWithName(name) {
 }
 
 function checkTokenExpired() {
-	if (_tokenExpires <= (new Date()).valueOf()) {
-		return true;
-	}
-	else {
-		return false;
-	}
+	return (_tokenExpires <= (new Date()).valueOf());
 }
 
 function getToken() {
@@ -98,17 +93,17 @@ function setHandlers() {
 		removeTrackFromQueue(id);
 	});
 
-
 	$('#vk_form_search').submit(function() {
 		search($('#vk_search').val());
 		return false;
 	});
 
 	_socket.on('playlist', function(tracks) {
-		$('.playlist').empty();
+        var playlist = $('.playlist');
+        playlist.empty();
 		for (var key in tracks) {
 			var track = tracks[key];
-			$('.playlist').prepend(
+            playlist.prepend(
 	  			"<p>"+track.artist+
 	  			" - <a class='track-playlist' id='trackPlaylist_"+track.hgId+
 	  			"' href='javascript:void(0)'>"+track.title+
