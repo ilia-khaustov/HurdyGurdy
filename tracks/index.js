@@ -4,7 +4,7 @@ var config = require('../config.js');
 var queue = [];
 var decoder = null;
 var isBusy = false;
-var socket = null;
+var sockets = [];
 
 function play(track, onPlaybackEnds) {
 	decoder = child_process.spawn(config.mplayer_exec, [ '-really-quiet', '-nolirc', track.url]);
@@ -42,7 +42,7 @@ function init(track) {
 
 	play(track, function() {
 		init();
-		socket.emit('playlist', queue);
+		sendToSockets('playlist', queue);
 	});
 }
 
@@ -68,18 +68,26 @@ function removeFromQueue(trackId) {
 	}
 }
 
-exports.setSocket = function(_socket) {
-	socket = _socket;
+function sendToSockets(action, data) {
+    for (var key in sockets) {
+        sockets[key].emit(action, data);  
+    }
+}
 
-	socket.on('send_track_to_queue', function (track) {
-		sendToQueue(track);
-		socket.emit('playlist', queue);
-	});
+exports.addClient = function(client) {
+    if (client.socket) {
+        sockets.push(client.socket);
 
-	socket.on('remove_track_from_queue', function(trackId) {
-		removeFromQueue(trackId);
-		socket.emit('playlist', queue);
-	});
+        client.socket.on('send_track_to_queue', function (track) {
+            sendToQueue(track);
+            sendToSockets('playlist', queue);
+        });
 
-	socket.emit('playlist', queue);
+        client.socket.on('remove_track_from_queue', function(trackId) {
+            removeFromQueue(trackId);
+            sendToSockets('playlist', queue);
+        });
+
+        sendToSockets('playlist', queue);
+    }
 }

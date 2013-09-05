@@ -8,6 +8,8 @@ var express = require('express')
 
 var app = express();
 
+var clients = {};
+
 // all environments
 app.set('port_http', process.env.PORT || 80);
 app.set('port_ws', 3000);
@@ -46,6 +48,10 @@ serverWs.listen(app.get('port_ws'), function() {
 listener_ws = io.listen(serverWs);
 listener_ws.sockets.on('connection', function (socket) {
 
-  tracks.setSocket(socket);
+  var newClientId = Object.keys(clients).length;
+  clients[newClientId] = {
+      'socket' : socket
+  };
+  tracks.addClient(clients[newClientId]);
 
 });
