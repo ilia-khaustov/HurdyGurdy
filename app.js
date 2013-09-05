@@ -50,8 +50,22 @@ listener_ws.sockets.on('connection', function (socket) {
 
   var newClientId = Object.keys(clients).length;
   clients[newClientId] = {
-      'socket' : socket
+      'socket' : socket,
+      'address' : socket.handshake.address.address
   };
   tracks.addClient(clients[newClientId]);
+
+});
+
+listener_ws.sockets.on('disconnect', function (socket) {
+
+    for (var key in clients) {
+        var client = clients[key];
+        if (client.socket == socket) {
+            tracks.removeClient(clients[key]);
+            delete clients[key];
+            return;
+        }
+    }
 
 });

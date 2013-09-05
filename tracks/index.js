@@ -5,6 +5,9 @@ var queue = [];
 var decoder = null;
 var isBusy = false;
 var sockets = [];
+var addresses = [];
+var trackPlaying = null;
+var skipVotes = [];
 
 function play(track, onPlaybackEnds) {
 	decoder = child_process.spawn(config.mplayer_exec, [ '-really-quiet', '-nolirc', track.url]);
@@ -30,20 +33,21 @@ function init(track) {
             track.hgId = queue[0].hgId + 1;
         }
         queue.unshift(track);
-        track = null;
     }
 
 	if (isBusy) return;
 
 	track = queue.pop();
-	if (!track) {
-		return;
+	if (track) {
+        play(track, function() {
+            trackPlaying = null;
+            init();
+            sendToSockets('playlist', queue);
+        });
 	}
 
-	play(track, function() {
-		init();
-		sendToSockets('playlist', queue);
-	});
+    trackPlaying = track;
+    sendToSockets('track_playing', trackPlaying);
 }
 
 function sendToQueue(track) {
@@ -53,10 +57,6 @@ function sendToQueue(track) {
 	}
 	init(track);
 }
-
-exports.sendToQueue = function(track) {
-	sendToQueue(track);
-};
 
 function removeFromQueue(trackId) {
 	for (var key in queue) {
@@ -74,9 +74,33 @@ function sendToSockets(action, data) {
     }
 }
 
+function stop() {
+    if (decoder) {
+        decoder.kill();
+        decoder = null;
+        isBusy = false;
+        sendToSockets('track_playing', null);
+    }
+}
+
+function skip(address) {
+    if (skipVotes.indexOf(address) < 0) {
+        skipVotes.push(address);
+    }
+    if (skipVotes.length >= addresses.length/2) {
+        skipVotes = [];
+        stop();
+        init();
+        sendToSockets('playlist', queue);
+    }
+}
+
 exports.addClient = function(client) {
     if (client.socket) {
         sockets.push(client.socket);
+        if (addresses.indexOf(client.address) < 0) {
+            addresses.push(client.address);
+        }
 
         client.socket.on('send_track_to_queue', function (track) {
             sendToQueue(track);
@@ -88,6 +112,22 @@ exports.addClient = function(client) {
             sendToSockets('playlist', queue);
         });
 
+        client.socket.on('stop', function() {
+            stop();
+        });
+
+        client.socket.on('skip', function() {
+            skip(client.address);
+        });
+
         sendToSockets('playlist', queue);
+        sendToSockets('track_playing', trackPlaying);
     }
-}
+};
+
+exports.removeClient = function(client) {
+    if (client.socket) {
+        sockets.remove(client.socket);
+        addresses.remove(client.address);
+    }
+};

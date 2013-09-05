@@ -65,18 +65,7 @@ function setHandlers() {
 		startAuth();
 	});
 
-	// var timeoutSearchId = null;
-	// $('#vk_search').keypress(function() {
-	// 	if (timeoutSearchId) {
-	// 		clearTimeout(timeoutSearchId);
-	// 	}
-	// 	var query = this.value;
-	// 	timeoutSearchId = setTimeout(function() {
-	// 		search(query);
-	// 	}, 500);
-	// });
-
-	$('.track-search').on('click', function(event) {
+	$('.searchlist').on('click', '.track-search', function(event) {
 		event.stopPropagation();
 		var id = $(this).attr('id').replace('trackSearch_', '');
 		for (var key in _tracksFound) {
@@ -110,7 +99,32 @@ function setHandlers() {
 	  			"</a></p>"
   			);
 		}
+        if (Object.keys(tracks).length > 0) {
+            $('#playlistHeader').show();
+        } else {
+            $('#playlistHeader').hide();
+        }
 	});
+
+    _socket.on('track_playing', function(track) {
+        $('.track-playing').remove();
+        if (track) {
+            $('.control').append(
+                '<span class="track-playing">'+track.artist+' - '+track.title+'</span>'
+            );
+        }
+    });
+
+    $('#btn-stop').click(function() {
+       _socket.emit('stop');
+    });
+
+    $('#btn-skip').click(function() {
+        _socket.emit('skip');
+    });
+
+    $('#playlistHeader').hide();
+    $('#searchlistHeader').hide();
 }
 
 function search(query) { 
@@ -120,11 +134,11 @@ function search(query) {
 					'&access_token='+
 					ACCESS_TOKEN+
 					'&callback=callbackSearch'; 
-	document.getElementsByTagName("head")[0].appendChild(script); 
+	document.getElementsByTagName("head")[0].appendChild(script);
 }
 
 function callbackSearch(result) {
-	$('.result').empty();
+	$('.searchlist').empty();
 	_tracksFound = [];
   	for (var key in result.response) {
   		item = result.response[key];
@@ -137,7 +151,7 @@ function callbackSearch(result) {
   			"</a></p>"
   		);
   	}
-  	setHandlers();
+    $('#searchlistHeader').show();
 }
 
 function sendTrackToQueue(track) {

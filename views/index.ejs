@@ -32,22 +32,30 @@
       </div>
       <div class="container manager">
         <form role="form" id='vk_form_search'>
-          <input type='hidden' name='vk.try_connect' value='<%=t.expression('vk.try_connect')%>' />
-          <input type='hidden' name='vk.wait_connection' value='<%=t.expression('vk.wait_connection')%>' />
+          <input type='hidden' name='vk.try_connect' value="<%=t.expression('vk.try_connect')%>" />
+          <input type='hidden' name='vk.wait_connection' value="<%=t.expression('vk.wait_connection')%>" />
           <div class="form-group row">
             <a href="javascript:void(0)" id="vk_connect"><%=t.expression('vk.try_connect')%></a>
             <input type="text" class="form-control" id="vk_search" placeholder="<%=t.expression('vk.placeholder_search')%>"/>
           </div>
         </form>
       </div>
+      <div class="container control">
+          <a class="btn btn-default" id='btn-stop'>
+              <span class="glyphicon glyphicon-stop"></span>
+          </a>
+          <a class="btn btn-default" id='btn-skip'>
+            <span class="glyphicon glyphicon-forward"></span>
+          </a>
+      </div>
       <div class="container lists">
         <div class="col-md-6 playlist-wrap">
-          <h3><%=t.expression('playlist.title')%></h3>
+          <h3 id='playlistHeader'><%=t.expression('playlist.title')%></h3>
           <div class="playlist">
           </div>
         </div>
         <div class="col-md-6 searchlist-wrap">
-          <h3><%=t.expression('searchlist.title')%></h3>
+          <h3 id='searchlistHeader'><%=t.expression('searchlist.title')%></h3>
           <div class="searchlist">
           </div>
         </div>
