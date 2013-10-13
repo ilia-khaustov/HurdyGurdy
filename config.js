@@ -16,7 +16,7 @@ var locales = {
 
 // Current parameters
 var currentEnvironment = dev;
-var currentOs = 'win';
+var currentOs = 'linux';
 var currentLocale = locales.ru;
 
 // Exports

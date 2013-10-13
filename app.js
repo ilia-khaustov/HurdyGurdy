@@ -13,7 +13,7 @@ var clients = {};
 // all environments
 app.set('port_http', process.env.PORT || 80);
 app.set('port_ws', 3000);
-app.set('views', __dirname + '/views');
+//app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(express.favicon());
 app.use(express.logger('dev'));

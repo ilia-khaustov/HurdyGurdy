@@ -3,33 +3,28 @@
   <head>
     <title><%= t.expression('title') %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    
     <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
     <link rel='stylesheet' href='css/style.css' />
-  	<meta charset="utf-8" />
-  </head>
-  <body>
+  	
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/engine.js"></script>
     
+  </head>
+
+  <body>
+    
     <div id="wrap">
+
       <div class="navbar navbar-default">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+        <div class="navbar-header">          
           <a class="navbar-brand" href="#">HuGu</a>
         </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="#about"><%=t.expression('about.title')%></a></li>
-          </ul>
-        </div>
       </div>
+
       <div class="container manager">
         <form role="form" id='vk_form_search'>
           <input type='hidden' name='vk.try_connect' value="<%=t.expression('vk.try_connect')%>" />
@@ -40,6 +35,7 @@
           </div>
         </form>
       </div>
+      
       <div class="container control">
           <a class="btn btn-default" id='btn-stop'>
               <span class="glyphicon glyphicon-stop"></span>
@@ -47,23 +43,26 @@
           <a class="btn btn-default" id='btn-skip'>
             <span class="glyphicon glyphicon-forward"></span>
           </a>
-      </div>
+      </div>     
+      
       <div class="container lists">
+
         <div class="col-md-6 playlist-wrap">
           <h3 id='playlistHeader'><%=t.expression('playlist.title')%></h3>
-          <div class="playlist">
+          <div class="playlist scroll">
           </div>
         </div>
+        
         <div class="col-md-6 searchlist-wrap">
           <h3 id='searchlistHeader'><%=t.expression('searchlist.title')%></h3>
           <div class="searchlist">
           </div>
         </div>
+
       </div>
+
     </div>
 
-    <div id="footer">
-    </div>
-
+    
   </body>
 </html>
