@@ -3,6 +3,7 @@ var _tracksFound = [];
 
 var	_socket = io.connect('ws://localhost:3000');
 
+
 ACCESS_TOKEN = null;
 
 function doAuth() {
@@ -27,6 +28,7 @@ function checkTokenExpired() {
 function getToken() {
 	ACCESS_TOKEN = getHashParam("access_token", 0);
 	_tokenExpires = (new Date()).valueOf() + getHashParam('expires_in', 0);
+	_socket.emit('send_access_token', ACCESS_TOKEN);
 }
 
 function checkAndDoAuthIfExpired() {
@@ -115,6 +117,15 @@ function setHandlers() {
         }
     });
 
+	_socket.on('client_user_data', function(user) {
+		var html = $('<h3/>',{ 
+			html:user.last_name + ' ' + user.first_name 
+		});
+        
+        $('#client_user_data').html(html);
+    });
+
+
     $('#btn-stop').click(function() {
        _socket.emit('stop');
     });
@@ -128,12 +139,11 @@ function setHandlers() {
 }
 
 function search(query) { 
-	var script = document.createElement('SCRIPT'); 
-	script.src = 'https://api.vk.com/method/audio.search?q='+
-					query+
-					'&access_token='+
-					ACCESS_TOKEN+
-					'&callback=callbackSearch'; 
+	var script = document.createElement('SCRIPT');
+	script.src = 'https://api.vk.com/method/audio.search?' +
+					'q=' + query +
+					'&access_token=' + ACCESS_TOKEN +
+					'&callback=callbackSearch';				
 	document.getElementsByTagName("head")[0].appendChild(script);
 }
 

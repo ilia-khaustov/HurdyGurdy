@@ -4,7 +4,8 @@ var express = require('express')
   , io = require('socket.io')
   , tracks = require('./tracks')
   , path = require('path')
-  , translate = require('./translate.js');
+  , translate = require('./translate.js')
+  , vkontakte = require('vkontakte');
 
 var app = express();
 
@@ -51,10 +52,11 @@ listener_ws.sockets.on('connection', function (socket) {
   var newClientId = Object.keys(clients).length;
   clients[newClientId] = {
       'socket' : socket,
-      'address' : socket.handshake.address.address
+      'address' : socket.handshake.address.address,
+      
   };
   tracks.addClient(clients[newClientId]);
-
+   console.log(clients);
 });
 
 listener_ws.sockets.on('disconnect', function (socket) {
