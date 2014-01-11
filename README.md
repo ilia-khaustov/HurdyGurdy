@@ -5,7 +5,7 @@ Pre-install
 -----------
 
 1. check mplayer on your system
-2. /etc/hosts add line: [your.ip.address] music.local
+2. in /etc/hosts add line: XXX.XXX.XXX.XXX music.local (change XXX.XXX.XXX.XXX to your ip-address)
 
 Install
 -------
@@ -19,6 +19,6 @@ Use
 ---
 
 1. Visit http://music.local
-3. Log into your [VK](http://vk.com) account, find music and add to playlist
-4. Enjoy music.
+2. Log into your [VK](http://vk.com) account, find music and add to playlist
+3. Enjoy music
 
