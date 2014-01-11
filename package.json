@@ -1,6 +1,6 @@
 {
-  "name": "HurdyGurdy",
-  "version": "0.0.1",
+  "name": "HuGu",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "start": "node app.js"
@@ -9,7 +9,9 @@
     "express": "3.3.4",
     "ejs": "*",
     "stylus": "*",
-    "socket.io" : "*",
-    "formidable" : "*"
+    "socket.io": "*",
+    "vkapi": "~1.0.0",
+    "MD5": "*",
+    "stopwatch-emitter": "*"
   }
 }

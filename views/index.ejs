@@ -1,71 +1,196 @@
 <!DOCTYPE html>
-<html lang="<%=config.locale%>">
-  <head>
-    <title><%= t.expression('title') %></title>
+<html>
+<head>
+    <title>HuGu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="components/jquery-ui/themes/base/jquery-ui.css"/>
+    <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.css" media="screen">
     <meta charset="utf-8" />
-    
-    <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
-    <link rel='stylesheet' href='css/style.css' />
-  	
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+    <script>
+        var app_client_id = "<%= client_id %>";
+    </script>
+    <script src="components/jquery/jquery.js"></script>
+    <script src="components/jquery-ui/ui/jquery-ui.js"></script>
+    <script src="js/socket.io.min.js"></script>
+    <script src="components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="components/purl/purl.js"></script>
+    <script src="components/momentjs/moment.js"></script>
+    <script src="components/jquery.timers/jquery.timers.js"></script>   
+
     <script src="js/engine.js"></script>
-    
-  </head>
 
-  <body>
-    
-    <div id="wrap">
+    <nav class="navbar navbar-default" role="navigation">
 
-      <div class="navbar navbar-default">
-        <div class="navbar-header">          
-          <a class="navbar-brand" href="#">HuGu</a>
-
-        </div>
-      </div>
-
-      <div class="container" id="client_user_data"></div>
-
-      <div class="container manager">
-        <form role="form" id='vk_form_search'>
-          <input type='hidden' name='vk.try_connect' value="<%=t.expression('vk.try_connect')%>" />
-          <input type='hidden' name='vk.wait_connection' value="<%=t.expression('vk.wait_connection')%>" />
-          <div class="form-group row">
-            <a href="javascript:void(0)" id="vk_connect"><%=t.expression('vk.try_connect')%></a>
-            <input type="text" class="form-control" id="vk_search" placeholder="<%=t.expression('vk.placeholder_search')%>"/>
-          </div>
-        </form>
-      </div>
-      
-      <div class="container control">
-          <a class="btn btn-default" id='btn-stop'>
-              <span class="glyphicon glyphicon-stop"></span>
-          </a>
-          <a class="btn btn-default" id='btn-skip'>
-            <span class="glyphicon glyphicon-forward"></span>
-          </a>
-      </div>     
-      
-      <div class="container lists">
-
-        <div class="col-md-6 playlist-wrap">
-          <h3 id='playlistHeader'><%=t.expression('playlist.title')%></h3>
-          <div class="playlist scroll">
-          </div>
-        </div>
-        
-        <div class="col-md-6 searchlist-wrap">
-          <h3 id='searchlistHeader'><%=t.expression('searchlist.title')%></h3>
-          <div class="searchlist">
-          </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">HuGu</a>
         </div>
 
-      </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <ul class="nav navbar-nav">
+                <li><button href="javascript:void(0)" id="vk_connect" class="btn btn-primary navbar-btn">Connect?</button></li>
+                <li><p class="navbar-text" id="signed_in"></p></li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Player</h3>
+                    </div>
+
+
+                    <div class="panel-body">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5 id="currentTrack"></h5>
+                            </div>                            
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+                    
+                                <div class="inline">
+
+                                    <a class="btn btn-default" id='btn-play'>
+                                        <span class="glyphicon glyphicon-play"></span>
+                                    </a>
+
+                                    <a class="btn btn-default" id='btn-stop'>
+                                        <span class="glyphicon glyphicon-stop"></span>
+                                    </a>
+
+                                    <a class="btn btn-default" id='btn-skip'>
+                                        <span class="glyphicon glyphicon-forward"></span>
+                                    </a>
+
+                                    <a class="btn btn-default" id='btn-download'>
+                                        <span class="glyphicon glyphicon-download"></span>
+                                    </a>
+
+                                    <a class="btn btn-default" id='btn-plus'>
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                    </a>
+                        
+                                </div>
+
+                            </div> 
+
+                            <div class="col-md-6">
+                                <h5>Volume <div id="volumeSlider"></div></h5>
+                            </div>
+
+                        </div>
+
+                    </div> 
+
+                </div>
+
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Playlist</h3>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="playlist" style="max-height: 200px; overflow-y: scroll;">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">    
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Users</h3>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="users" id="users"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Search</h3>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="search">
+
+                            <div id="search">
+
+                                <div class="well">
+
+                                    <form class="form-inline" role="form" id='vk_form_search'>
+
+                                        <div class="btn-group">
+                                            <a href="#" class="btn btn-default" id="showAudio">My playlist</a>
+                                            <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                <span class="caret"></span>
+                                                <span class="sr-only">&nbsp;</span>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#" id="showRadio">Radiostations</a></li>    
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="sr-only" for="vk_search">Search</label>
+                                            <input id="vk_search"  type="search" class="form-control" placeholder="Search">
+                                        </div>              
+
+                                        <button type="submit" class="btn btn-primary">Go</button>
+                                        <button type="reset" class="btn btn-default">Clear</button>
+                                        
+                                        
+                                    </form>
+
+                                </div>
+
+                                <a href="#" id="moveall" class="btn btn-default">Move all</a>
+                                <div class="searchlist" style="max-height: 200px; overflow-y: scroll;">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
-    
-  </body>
+</div>
+
+</body>
 </html>
