@@ -22,3 +22,7 @@ Use
 2. Log into your [VK](http://vk.com) account, find music and add to playlist
 3. Enjoy music
 
+
+Link
+----
+[Article about HuGu on Habrahabr.ru (russian)](http://habrahabr.ru/post/209230/)
