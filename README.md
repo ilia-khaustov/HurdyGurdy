@@ -1,10 +1,16 @@
 HuGu
 ==========
 
+Requirements
+------------
+
+Ubuntu or other Debian-like OS
+
+
 Pre-install
 -----------
 
-1. check mplayer on your system
+1. check mplayer and amixer on your system
 2. in /etc/hosts add line: XXX.XXX.XXX.XXX music.local (change XXX.XXX.XXX.XXX to your ip-address)
 
 Install
