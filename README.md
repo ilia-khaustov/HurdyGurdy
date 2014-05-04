@@ -11,7 +11,8 @@ Pre-install
 -----------
 
 1. check mplayer and amixer on your system
-2. in /etc/hosts add line: XXX.XXX.XXX.XXX music.local (change XXX.XXX.XXX.XXX to your ip-address)
+2. check latest version node.js
+3. in /etc/hosts add line: XXX.XXX.XXX.XXX music.local (change XXX.XXX.XXX.XXX to your ip-address)
 
 Install
 -------
