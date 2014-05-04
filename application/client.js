@@ -93,6 +93,11 @@ function Client(object){
         socket.on('setVolume', function(value){
             manager.setVolume(value + '%');
         });
+
+        socket.on('radiolist', function(){            
+            var radiolist = manager.getRadiolist();
+            emitSocket('radiolist', radiolist);
+        });
     };
 
     var isAuthenticated = function(){

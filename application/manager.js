@@ -3,6 +3,8 @@ var Player = require('./player');
 var Volumer = require('./volumer');
 var EventEmitter = require('events').EventEmitter;
 var Stopwatch = require('stopwatch-emitter').Stopwatch;
+var JSONFile = require('jsonfile');
+
 
 function Manager(){
 
@@ -13,6 +15,7 @@ function Manager(){
 	var volumer = new Volumer();
 	var emitter = new EventEmitter();
 	var stopwatch = null;
+	var radiolist = null;
 
 	var optionPlayNext = true;
 
@@ -22,10 +25,22 @@ function Manager(){
 	}
 	
 	var startStopwatch = function(){
-		if(stopwatch){	
-        	stopwatch.start();
-        }
-    }
+		if(stopwatch){
+			stopwatch.start();
+		}
+	}
+
+
+	var readRadioList = function(filename){
+		JSONFile.readFile(filename, function(err, content){
+
+			if(!err){
+				radiolist = content;
+			}else{
+				console.log('Not valid radiolist file. Please, check valid JSON');
+			}
+		});
+	}
 
     var getCurrentTime = function(){
     	var curtime = 0;
@@ -53,6 +68,10 @@ function Manager(){
 		volumer.on('volume', function(value){		
 			emit('currentVolume', value);
 		});
+	}
+
+	var getRadiolist = function(){		
+		return radiolist;
 	}
 
 	var setVolume = function(value){
@@ -157,6 +176,7 @@ function Manager(){
 	var initPlayer = function(){		
 		setPlayerOnEnd(checkPlayerAndPlayNext);
 		onVolumeHandler();
+		readRadioList('radiolist.json');
 	}
 
 
@@ -165,6 +185,7 @@ function Manager(){
 	return {
 		getVolume: getVolume,
 		setVolume: setVolume,
+		getRadiolist: getRadiolist,
 		getCurrentTrack: getCurrentTrack,
 		addTrackToPlaylist: addTrackToPlaylist,
 		getPlaylist: getPlaylist,

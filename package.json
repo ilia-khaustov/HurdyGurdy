@@ -12,6 +12,7 @@
     "socket.io": "*",
     "vkapi": "~1.0.0",
     "MD5": "*",
-    "stopwatch-emitter": "*"
+    "stopwatch-emitter": "*",
+    "jsonfile": "~1.1.1"
   }
 }

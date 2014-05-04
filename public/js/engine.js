@@ -1,20 +1,25 @@
 var _tokenExpires = 0;
-var _tracksFound = [];
 var _userId = 0;
 var _userAvatar = '';
+ACCESS_TOKEN = null;
+
+
 var _serverHost = $.url().attr('host');
+var _serverPort = $.url().attr('port');
+
 var	_socket = io.connect('ws://'+_serverHost+':3001');
+
+var _tracksFound = [];
 var countdown = null;
 
 
-ACCESS_TOKEN = null;
-
 function doAuth() {
+	var path = (_serverPort != '') ? _serverHost + ':' + _serverPort : _serverHost;	
 	window.open(
 		"https://oauth.vk.com/authorize?" + 
 		"client_id=" + app_client_id + "&" + 
 		"scope=8&" + 
-		"redirect_uri=http://" + _serverHost + "&" +
+		"redirect_uri=http://" + path + "&" +
 		"display=page&" + 
 		"response_type=token", "_self"
 		);
@@ -98,6 +103,66 @@ function renderUsers(users){
 	});
 }
 
+function Player(){
+
+	var stop = function (){
+		$("#countdown").stopTime();
+		_socket.emit('stop');
+	}
+
+	var play = function (){
+		_socket.emit('play');
+	}
+
+	var skip = function (){
+		_socket.emit('skip');
+	}
+	
+	return {
+		stop: stop,
+		play: play,
+		skip: skip,
+	};
+}
+
+var player = new Player();
+
+
+
+function Volume (){
+
+	var set = function(value){
+		var Slider = $('#volumeSlider');
+		Slider.slider('value', value);
+	}
+	
+	var up = function(){
+		var Slider = $('#volumeSlider');
+		var val = Slider.slider("option","value");
+		var new_value = val + 1;
+		Slider.slider('value', new_value);
+		_socket.emit('setVolume', new_value);				
+	}
+
+	var down = function(){
+		var Slider = $('#volumeSlider');
+		var val = Slider.slider("option","value");
+		var new_value = val - 1;
+		Slider.slider('value', new_value);
+		_socket.emit('setVolume', new_value);				
+	}
+
+	return {
+		set: set,
+		up: up,
+		down: down,
+	};
+}
+
+var volume = new Volume();
+
+
+
 function setHandlers() {
 
 	$('#vk_connect').on('click', function() {
@@ -106,6 +171,10 @@ function setHandlers() {
 
 	$('#showAudio').on('click', function() {
 		showAudio();
+	});
+
+	$('#showRecommendations').on('click', function() {
+		showRecommendations();
 	});
 
 	$('#showRadio').on('click', function() {		
@@ -147,6 +216,10 @@ function setHandlers() {
 		renderPlaylist(tracks);
 	});
 
+	_socket.on('radiolist', function(radios) {
+		renderRadiolist(radios);
+	});
+
 	_socket.on('users', function(users) {
 		renderUsers(users);
 	});
@@ -173,25 +246,40 @@ function setHandlers() {
  				$(this).text(formatDuration(track.playing_time + i));
 			});
 
-			
 		});
 
 	_socket.on('currentVolume',function(value){
-		$('#volumeSlider').children('a').css({left: value + '%'});	
+		volume.set(value);
+		//$('#volumeSlider').slider('value', value);
+		//$('#volumeSlider').children('a').css({left: value + '%'});	
 	});
 
 
+
+	Mousetrap.bind('c', function(){ 
+		player.stop()
+	});
+	
 	$('#btn-stop').click(function() {
-		$("#countdown").stopTime();
-		_socket.emit('stop');
+		player.stop()
+	});
+
+	
+	Mousetrap.bind('g a', function(){ 
+		addAudioToVK();
 	});
 
 	$('#btn-plus').click(function() {
 		addAudioToVK();
 	});
 
+
+	Mousetrap.bind('x', function(){ 
+		player.play();
+	});
+
 	$('#btn-play').click(function() {		
-		_socket.emit('play');
+		player.play();
 	});
 
 	$('#btn-download').click(function() {
@@ -199,8 +287,22 @@ function setHandlers() {
 		window.open(url, '_blank');
 	});
 
+	
+	Mousetrap.bind('b', function(){ 
+		player.skip();
+	});
+
 	$('#btn-skip').click(function() {
-		_socket.emit('skip');
+		player.skip();		
+	});
+
+
+	Mousetrap.bind('.', function(){ 
+		volume.up();
+	});
+
+	Mousetrap.bind(',', function(){ 
+		volume.down();
 	});
 
 	$('#volumeSlider').slider({
@@ -214,6 +316,8 @@ function setHandlers() {
 		}
 	});    
 }
+
+
 
 function addAudioToVK(){
 	var audio_id = $('#currentTrack').attr('data-aid');
@@ -287,35 +391,36 @@ function showAudio(){
 	getAudio(_userId);
 }
 
-function showRadio(){
-	
-	var array = getRadioList();
-	
+function showRecommendations(){
+	getRecommendations(_userId);
+}
+
+function showRadio(){	
+	_socket.emit('radiolist');
+}
+
+
+function renderRadiolist(radios){
 	$('.searchlist').empty();
 	_tracksFound = [];
 
-	fillTracksFound(array);
+	fillTracksFound(radios);
 
 	var html = makeSearchList(_tracksFound);
 	$('.searchlist').append(html);
 }
 
 
-function getRadioList(){
-	return [
-		{		
-			url:'http://webcast.emg.fm:55655/europaplus128.mp3',
-			title: 'Europa Plus 128Kbit',
+function getRecommendations(user_id) { 
+
+	var url = prepareUrlString({
+		method: 'audio.getRecommendations',
+		params: { 
+			user_id: user_id
 		},
-		{		
-			url:'http://mp3.nashe.ru/nashe-128.mp3',
-			title: 'Наше радио',
-		},
-		{
-			url: 'http://217.29.51.162:8000/relaxfm-onair-128k.mp3',
-			title: 'Relax FM',
-		}
-	];
+	});	
+
+	getDataFromVK(url, callbackSearch);
 }
 
 function getAudio(user_id) { 
@@ -420,14 +525,19 @@ function makeSearchList(tracks){
 
 		var artist_link = $('<a />', {
 			html: artist,
-			'class': 'searchItem',
-			href: '#'
+			'class': 'searchItem',		
 		});
 
 		var track_link = $('<a />', {
 			html: track.title,
 			id: 'trackSearch_' + key,
-			'class': 'track-search',
+			'class': 'searchItem',
+		});
+
+		var add_link = $('<a />', {
+			html: 'Add',
+			id: 'trackSearch_' + key,
+			'class': 'track-search btn btn-default btn-sm'		
 		});
 
 		var duration = formatDuration(track.duration);
@@ -436,8 +546,10 @@ function makeSearchList(tracks){
 			.append(artist_link)
 			.append('&nbsp;')
 			.append(track_link)
+			.append('&nbsp;')			
+			.append(duration)
 			.append('&nbsp;')
-			.append(duration);
+			.append(add_link);
 
 		$('.searchlist').append(track_item);
 	}
