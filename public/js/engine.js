@@ -117,16 +117,20 @@ function Player(){
 	var skip = function (){
 		_socket.emit('skip');
 	}
+
+	var shuffle = function(){
+		_socket.emit('shuffle');
+	}
 	
 	return {
 		stop: stop,
 		play: play,
 		skip: skip,
+		shuffle: shuffle,
 	};
 }
 
 var player = new Player();
-
 
 
 function Volume (){
@@ -228,25 +232,40 @@ function setHandlers() {
 	_socket.on('currentTrack', function(track) {
 		$('.track-playing').remove();
 
-		if (track) {			
-			$('#currentTrack').html(
-				'<span class="track-playing">' + 
-				track.artist + ' - ' + 
-				track.title + ' - ' +
-				formatDuration(track.duration) + 
-				' <span id="countdown"></span>' +				
-				'</span>'
-				).attr({
-					'data-url': track.url,
-					'data-aid': track.aid
-				});
-			}
-
-			$("#countdown").everyTime(1000, function(i) {
- 				$(this).text(formatDuration(track.playing_time + i));
-			});
-
+		var avatar = $('<img />',{
+			src: track.addByUserAvatar, 
+			width: 20, 
+			height: 20
 		});
+
+		var trackText = 
+			track.artist + ' - ' + 
+			track.title + ' - ' +
+			formatDuration(track.duration);
+
+		var trackPlaying = $('<span/>',{
+			'text': trackText,
+			'class': 'track-playing',
+			'data-url': track.url,
+			'data-aid': track.aid,
+		}).css('margin', 7);
+
+		var spanCountdown = $('<span/>',{
+			id: 'countdown'
+		});
+
+		if (track) {			
+			$('#currentTrack')
+				.html(avatar)
+				.append(trackPlaying)
+				.append(spanCountdown);
+		}
+
+		$("#countdown").everyTime(1000, function(i) {
+ 			$(this).text(formatDuration(track.playing_time + i));
+		});
+
+	});
 
 	_socket.on('currentVolume',function(value){
 		volume.set(value);
@@ -280,6 +299,11 @@ function setHandlers() {
 
 	$('#btn-play').click(function() {		
 		player.play();
+	});
+
+
+	$('#btn-shuffle').click(function() {		
+		player.shuffle();
 	});
 
 	$('#btn-download').click(function() {

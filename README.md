@@ -7,7 +7,6 @@ Requirements
 Ubuntu or other Debian-like OS
 No Windows!
 
-
 Pre-install
 -----------
 

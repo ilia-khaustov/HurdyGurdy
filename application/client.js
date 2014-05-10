@@ -90,6 +90,10 @@ function Client(object){
             manager.skip();
         });
 
+        socket.on('shuffle', function() {
+            manager.shuffle();
+        });
+
         socket.on('setVolume', function(value){
             manager.setVolume(value + '%');
         });
