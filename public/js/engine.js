@@ -85,7 +85,8 @@ function renderUsers(users){
 		
 		for(var key in result.response){
 
-			var userVK = result.response[key];			
+			var userVK = result.response[key];
+
 			var img = $('<img />', {
 				src: userVK.photo_50,
 				height: '20px',
@@ -230,21 +231,22 @@ function setHandlers() {
 	
 
 	_socket.on('currentTrack', function(track) {
-		$('.track-playing').remove();
+		$('#currentTrack').html();
 
 		var avatar = $('<img />',{
 			src: track.addByUserAvatar, 
-			width: 20, 
+			width: 20,
 			height: 20
 		});
 
-		var trackText = 
-			track.artist + ' - ' + 
-			track.title + ' - ' +
-			formatDuration(track.duration);
+		var trackText = [
+			track.artist,
+			track.title,
+			formatDuration(track.duration)
+			];
 
 		var trackPlaying = $('<span/>',{
-			'text': trackText,
+			'text': trackText.join(' - '),
 			'class': 'track-playing',
 			'data-url': track.url,
 			'data-aid': track.aid,
@@ -269,10 +271,7 @@ function setHandlers() {
 
 	_socket.on('currentVolume',function(value){
 		volume.set(value);
-		//$('#volumeSlider').slider('value', value);
-		//$('#volumeSlider').children('a').css({left: value + '%'});	
 	});
-
 
 
 	Mousetrap.bind('c', function(){ 
