@@ -9,7 +9,7 @@
     "express": "3.3.4",
     "ejs": "*",
     "stylus": "*",
-    "socket.io": "*",
+    "socket.io": "0.9.16",
     "vkapi": "~1.0.0",
     "MD5": "*",
     "stopwatch-emitter": "*",
