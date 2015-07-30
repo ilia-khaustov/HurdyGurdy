@@ -1,22 +1,27 @@
-var express = require('express')
-  , routes = require('./routes')
-  , http = require('http')
-  , io = require('socket.io')
-  , tracks = require('./tracks')
-  , path = require('path')
-  , translate = require('./translate.js');
+var express = require('express'),
+    http = require('http'),
+    io = require('socket.io'),
+    path = require('path'),
+    md5 = require('MD5'),
+    Client = require('./application/client'),
+    Pool = require('./application/pool'),
+    Manager = require('./application/manager');
+
 
 var app = express();
 
-var clients = {};
+var pool = new Pool();
+var manager = new Manager();
 
-// all environments
-app.set('port_http', process.env.PORT || 80);
-app.set('port_ws', 3000);
+
+app.set('port_http', 80);
+app.set('port_websocket', 3001);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+app.set('client_id', '3668304')
+
 app.use(express.favicon());
-app.use(express.logger('dev'));
+app.use(express.logger());
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(express.cookieParser('your secret here'));
@@ -25,47 +30,45 @@ app.use(app.router);
 app.use(require('stylus').middleware(__dirname + '/public'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-}
 
-app.get('/', routes.index);
-app.get('/translate.js', function(req, res) {
-  res.send(translate.source);
+app.get('/', function(request, response){    
+    response.render('index', {client_id: app.get('client_id')});
 });
-
-serverWs = http.createServer(app);
 
 app.listen(app.get('port_http'), function() {
-  console.log('Express server listening on port ' + app.get('port_http'));
+    console.log('Express server listening on port ' + app.get('port_http'));
 });
 
-serverWs.listen(app.get('port_ws'), function() {
-  console.log('WebSockets server listening on port ' + app.get('port_ws'));
+
+WebsocketServer = http.createServer(app);
+
+WebsocketServer.listen(app.get('port_websocket'), function() {
+    console.log('WebSockets server listening on port ' + app.get('port_websocket'));
 });
 
-listener_ws = io.listen(serverWs);
-listener_ws.sockets.on('connection', function (socket) {
 
-  var newClientId = Object.keys(clients).length;
-  clients[newClientId] = {
-      'socket' : socket,
-      'address' : socket.handshake.address.address
-  };
-  tracks.addClient(clients[newClientId]);
+WebsocketListener = io.listen(WebsocketServer);
 
+WebsocketListener.sockets.on('connection', function (socket) {
+
+    var client = new Client({
+        socket: socket,        
+        manager: manager,
+        app: app
+    });
+
+    pool.addClient(client);
 });
 
-listener_ws.sockets.on('disconnect', function (socket) {
 
-    for (var key in clients) {
-        var client = clients[key];
-        if (client.socket == socket) {
-            tracks.removeClient(clients[key]);
-            delete clients[key];
-            return;
-        }
-    }
+manager.on('updatePlaylist', function(){
+    pool.emitSocket('playlist', manager.getPlaylist());
+});
 
+manager.on('currentTrack', function(){
+    pool.emitSocket('currentTrack', manager.getCurrentTrack());
+});
+
+manager.on('currentVolume', function(value){
+    pool.emitSocket('currentVolume', value);
 });
